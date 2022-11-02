@@ -1,0 +1,62 @@
+body{
+    display:flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #37374B;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 100;
+    font-size: x-large;
+    justify-content: center;
+    background-color: #191928;
+    padding: 10px 5px;
+    height: 80px;
+    color: goldenrod;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.score{
+    display: flex;
+    align-self: center;
+    color: aliceblue;
+    padding-top: 50px;
+}
+.container{
+    display: flex;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #191928;
+    color: aliceblue;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#info{
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: large;
+    font-weight: 100;
+}
+
+#info:hover{
+    font-size: 20px;
+    font-weight: 150;
+    color: goldenrod;
+}

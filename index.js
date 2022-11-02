@@ -6,7 +6,7 @@ let playerScore = 0, computerScore = 0;
 const scoreDiv = document.querySelector('.score');
 const scoreH1 = document.createElement('h1');
 scoreDiv.appendChild(scoreH1);
-scoreH1.innerText = `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
+scoreH1.innerText = `Player ${playerScore} vs ${computerScore} Computer`;
 
 // BUTTONS 
 const rockButton = document.querySelector('#rock');
@@ -49,18 +49,18 @@ function playRound(playerSelection, computerSelection) {
       }
       if (computerScore == 5) {
             scoreH1.innerText = 'The computer won! :( \n'+
-                  `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
+                  `Player: ${playerScore} vs ${computerScore} Computer`;
             computerScore = 0;
             playerScore = 0;
       }
       else if (playerScore == 5) {
             scoreH1.innerText = 'You won! Congratulations!\n'+
-            `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
+            `Player: ${playerScore} vs ${computerScore} Computer`;
             computerScore = 0;
             playerScore = 0;
       }
       else {
-            scoreH1.innerText = `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
+            scoreH1.innerText = `Player ${playerScore} vs ${computerScore} Computer`;
       }
 }
 
