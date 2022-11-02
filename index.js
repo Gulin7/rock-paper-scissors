@@ -47,14 +47,8 @@ function playRound(playerSelection, computerSelection) {
             swal({
                   text: 'The computer won :(',
                   confirmButtonText: 'GG',
-                  confirmButtonColor: '#3085d6',
-                  background: '#fff url(/images/trees.png)',
-                  backdrop: `
-                    rgba(0,0,123,0.4)
-                    url("/images/nyan-cat.gif")
-                    left top
-                    no-repeat
-                  `      
+                  confirmButtonColor: '#3085d6', 
+                  
             });
             score.innerText = `Player ${playerScore} vs ${computerScore} Computer`;
             computerScore = 0;
@@ -66,13 +60,7 @@ function playRound(playerSelection, computerSelection) {
                   text: 'YOU WON!!!',
                   confirmButtonText: 'GG',
                   confirmButtonColor: '#3085d6',
-                  background: '#fff url(/images/mountain.jpg)',
-                  backdrop: `
-                    rgba(0,0,123,0.4)
-                    url("/images/victory-royale.gif")
-                    left top
-                    no-repeat
-                  `
+                  // background: `./images/victory-royale.gif` not working
             });
             computerScore = 0;
             playerScore = 0;
