@@ -1,42 +1,66 @@
+// POSSIBLE CHOICES AND SCORE VARIABLES
 const choices = ["rock", "paper", "scissors"];
 let playerScore = 0, computerScore = 0;
 
-const rockButton = document.querySelector('.rock');
-const paperButton = document.querySelector('.paper');
-const scissorsButton = document.querySelector('.scissors');
+// SCORE DIV
 const scoreDiv = document.querySelector('.score');
+const scoreH1 = document.createElement('h1');
+scoreDiv.appendChild(scoreH1);
+scoreH1.innerText = `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
+
+// BUTTONS 
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+// OUTCOME DIV
+const outcomeDiv = document.querySelector('.outcome');
+const p = document.createElement('p');
+outcomeDiv.appendChild(p)
 
 function getComputerChoice() {
+      // Returns a random choice from the choice-array we created at the top of the doc
       return choices[Math.floor(Math.random() * 3)];
 }
 
 function checkWinner(playerSelection, computerSelection) {
-      if (playerSelection == computerSelection) return "Tie";
-      else if (
+      if (playerSelection == computerSelection) return "Tie"; // same choice = a tie in rock-paper-scissors
+      else if ( // those are the cases in which player wins, therefore returns player
             (playerSelection == "rock" && computerSelection == "scissors") ||
             (playerSelection == "scissors" && computerSelection == "paper") ||
             (playerSelection == "paper" && computerSelection == "rock"))
             return "Player";
-      else return "Computer";
+      else return "Computer"; 
+      // if the player didn't win then the computer won
 }
 
 function playRound(playerSelection, computerSelection) {
       const result = checkWinner(playerSelection, computerSelection);
-      const p = document.createElement('p');
-      
       if (result == "Tie") {
-            p.innerText = "It's a Tie!";
-            scoreDiv.appendChild(p)
+            p.innerText = "It's a Tie!";  
       }
       else if (result == "Player") {
             playerScore++;
-            p.innerText = `You win! ${playerSelection} beats ${computerSelection}!`;
-            scoreDiv.appendChild(p)
+            p.innerText = `You win!: ${playerSelection} beats ${computerSelection}! :D`;
       }
       else {
             computerScore++;
-            p.innerText = `You lose! ${computerSelection} beats ${playerSelection}!`;
-            scoreDiv.appendChild(p)
+            p.innerText = `You lose!: ${computerSelection} beats ${playerSelection}! :(`;
+      }
+      if (computerScore == 5) {
+            scoreH1.innerText = 'The computer won! :( \n'+
+                  `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
+            computerScore = 0;
+            playerScore = 0;
+      }
+      else if (playerScore == 5) {
+            scoreH1.innerText = 'You won! Congratulations!\n'+
+            `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
+            computerScore = 0;
+            playerScore = 0;
+      }
+      else {
+            scoreH1.innerText = `Score: \n Player: ${playerScore} vs ${computerScore} Computer`;
       }
 }
 
