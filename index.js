@@ -1,4 +1,10 @@
 const choices = ["rock", "paper", "scissors"];
+let playerScore = 0, computerScore = 0;
+
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorsButton = document.querySelector('.scissors');
+const scoreDiv = document.querySelector('.score');
 
 function getComputerChoice() {
       return choices[Math.floor(Math.random() * 3)];
@@ -16,14 +22,21 @@ function checkWinner(playerSelection, computerSelection) {
 
 function playRound(playerSelection, computerSelection) {
       const result = checkWinner(playerSelection, computerSelection);
+      const p = document.createElement('p');
+      
       if (result == "Tie") {
-            return "It's a Tie!";
+            p.innerText = "It's a Tie!";
+            scoreDiv.appendChild(p)
       }
       else if (result == "Player") {
-            return `You win! ${playerSelection} beats ${computerSelection}!`;
+            playerScore++;
+            p.innerText = `You win! ${playerSelection} beats ${computerSelection}!`;
+            scoreDiv.appendChild(p)
       }
       else {
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+            computerScore++;
+            p.innerText = `You lose! ${computerSelection} beats ${playerSelection}!`;
+            scoreDiv.appendChild(p)
       }
 }
 
@@ -42,10 +55,26 @@ function getPlayerChoice() {
       }
 
 }
-function game() {
+
+rockButton.addEventListener('click', () => {
+      const computerSelection = getComputerChoice();
+      const playerSelection = 'rock';
+      playRound(playerSelection, computerSelection);
+});
+paperButton.addEventListener('click', () => {
+      const computerSelection = getComputerChoice();
+      const playerSelection = 'paper';
+      playRound(playerSelection, computerSelection);
+});
+scissorsButton.addEventListener('click', () => {
+      const computerSelection = getComputerChoice();
+      const playerSelection = 'scissors';
+      playRound(playerSelection, computerSelection);
+});
+
+/*function game() {
       console.log("Welcome!");
-      let playerScore = 0,
-            computerScore = 0;
+      let playerScore = 0, computerScore = 0;
       let score = `Player: ${playerScore} vs Computer:$ {computerScore}`;
       // console.log(score);
       for (let i = 0; i < 5; i++) {
@@ -73,4 +102,4 @@ function game() {
       }
 }
 
-game();
+game();*/
